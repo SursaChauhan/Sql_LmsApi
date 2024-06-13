@@ -5,12 +5,21 @@ const jwt = require('jsonwebtoken');
 const { check, validationResult } = require('express-validator');
 const dotenv = require('dotenv');
 const { connectionTodb } = require('./config/dbConfig');
-
+const authRoutes =require ('./routes/auth.routes')
+const courseRoutes =require ('./routes/course.routes')
+const userRoutes =require ('./routes/user.routes')
 
 const app = express();
 app.use(express.json());
 
-const PORT = process.env.PORT || 3306;
+app.use('/auth', authRoutes);
+app.use('/courses', courseRoutes);
+app.use('/users', userRoutes);
+
+app.get('/',(req,res)=>{
+    res.send('welcome to lms');
+})
+const PORT = process.env.PORT || 8080;
 
 app.listen(PORT,async()=>{
     await connectionTodb();
