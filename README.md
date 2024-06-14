@@ -49,7 +49,7 @@ A RESTful API for a Course Management System within an LMS.
 - **Register a new user (student or teacher)**
 
   ```http
-  POST /auth/register
+  POST /api/register
   ```
 
   Request Body:
@@ -65,7 +65,7 @@ A RESTful API for a Course Management System within an LMS.
 - **Authenticate a user and provide a token**
 
   ```http
-  POST /auth/login
+  POST /api/login
   ```
 
   Request Body:
